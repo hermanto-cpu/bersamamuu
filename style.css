@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 100px;
+}
+
+body {
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: 100vh;
+  background: #000;
+  font-family: "Playpen Sans", cursive;
+  letter-spacing: -0.5px;
+  overflow: hidden;
+}
+/* text */
+.container {
+  color: white;
+  font-size: 2rem;
+  min-width: 50%;
+  max-width: 70%;
+  text-align: center;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.container .text {
+  text-shadow: 2px 2px #ff0000;
+  margin-bottom: 6rem;
+}
+
+/* audio */
+audio {
+  background: transparent;
+  border: none;
+  outline: none;
+  position: fixed;
+  width: 100%;
+  min-width: 50%;
+  max-width: 60%;
+  margin: 0 auto;
+  top: 50%;
+  transform: translate(0, 50%); /* Menggeser audio ke bawah text */
+}
+
+/* Progress bar */
+audio::-webkit-media-controls-timeline {
+  background: transparent;
+}
+
+/* Warna slider pemutar */
+audio::-webkit-media-controls-current-time-slider,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-time-remaining-slider {
+  background: #fff; /* Ganti warna sesuai kebutuhan */
+}
+
+/* Warna tombol pemutar */
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button {
+  color: #fff; /* Ganti warna sesuai kebutuhan */
+}
+
+/* Warna volume slider */
+audio::-webkit-media-controls-volume-slider {
+  background: #fff; /* Ganti warna sesuai kebutuhan */
+}
+
+/* Warna latar belakang kontrol audio */
+audio::-webkit-media-controls-panel {
+  background: transparent;
+}
+
+/* background */
+.glowing {
+  position: relative;
+  min-width: 700px;
+  height: 550px;
+  margin: -150px;
+  transform-origin: right;
+  animation: colorChange 5s linear infinite;
+}
+
+.glowing:nth-child(even) {
+  transform-origin: left;
+}
+
+@keyframes colorChange {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.glowing span {
+  position: absolute;
+  top: calc(80px * var(--i));
+  left: calc(80px * var(--i));
+  bottom: calc(80px * var(--i));
+  right: calc(80px * var(--i));
+}
+
+.glowing span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  width: 15px;
+  height: 15px;
+  background: #f00;
+  border-radius: 50%;
+}
+
+.glowing span:nth-child(3n + 1)::before {
+  background: rgba(134, 255, 0, 1);
+  box-shadow: 0 0 20px rgba(134, 255, 0, 1), 0 0 40px rgba(134, 255, 0, 1), 0 0 60px rgba(134, 255, 0, 1), 0 0 80px rgba(134, 255, 0, 1), 0 0 0 8px rgba(134, 255, 0, 0.1);
+}
+
+.glowing span:nth-child(3n + 2)::before {
+  background: rgba(255, 214, 0, 1);
+  box-shadow: 0 0 20px rgba(255, 214, 0, 1), 0 0 40px rgba(255, 214, 0, 1), 0 0 60px rgba(255, 214, 0, 1), 0 0 80px rgba(255, 214, 0, 1), 0 0 0 8px rgba(255, 214, 0, 0.1);
+}
+
+.glowing span:nth-child(3n + 3)::before {
+  background: rgba(0, 226, 255, 1);
+  box-shadow: 0 0 20px rgba(0, 226, 255, 1), 0 0 40px rgba(0, 226, 255, 1), 0 0 60px rgba(0, 226, 255, 1), 0 0 80px rgba(0, 226, 255, 1), 0 0 0 8px rgba(0, 226, 255, 0.1);
+}
+
+.glowing span:nth-child(3n + 1) {
+  animation: animate 10s alternate infinite;
+}
+
+.glowing span:nth-child(3n + 2) {
+  animation: animate-reverse 3s alternate infinite;
+}
+
+.glowing span:nth-child(3n + 3) {
+  animation: animate 8s alternate infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* media */
+/* media queries */
+/* laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+/* Tab */
+@media (max-width: 768px) {
+  html {
+    font-size: 68.5%;
+  }
+}
+
+/* HP */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}

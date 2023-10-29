@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bersamamuu ~</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="text"></div>
+      <audio controls autoplay src="jaz.mp3"></audio>
+    </div>
+    <div class="glowing">
+      <span style="--i: 1"></span>
+
+      <span style="--i: 2"></span>
+
+      <span style="--i: 3"></span>
+    </div>
+
+    <div class="glowing">
+      <span style="--i: 1"></span>
+
+      <span style="--i: 2"></span>
+
+      <span style="--i: 3"></span>
+    </div>
+
+    <div class="glowing">
+      <span style="--i: 1"></span>
+
+      <span style="--i: 2"></span>
+
+      <span style="--i: 3"></span>
+    </div>
+
+    <div class="glowing">
+      <span style="--i: 1"></span>
+
+      <span style="--i: 2"></span>
+
+      <span style="--i: 3"></span>
+    </div>
+
+    <script>
+      const div = document.querySelector(".text");
+      const texts = [
+        { text: "Bersamamu..", tempo: 70, delay: 2000 },
+        { text: "Ku akan dicintai dengan tulus", tempo: 80, delay: 4000 },
+        { text: "Tanpa ragu..", tempo: 70, delay: 2000 },
+        { text: "Ku akan memberikan cintaku", tempo: 80, delay: 4000 },
+        { text: "Bersamaku..", tempo: 70, delay: 1500 },
+        { text: "Kamu tak akan sendu", tempo: 80, delay: 4000 },
+        { text: "Yakinkan kamu", tempo: 70, delay: 2000 },
+        { text: "Aku yang terbaik untukmu...", tempo: 80, delay: 0 },
+      ];
+
+      function textTypingEffect(element, text, tempo, delay, index) {
+        let i = 0;
+
+        function type() {
+          if (i < text.length) {
+            element.textContent += text[i];
+            setTimeout(type, tempo);
+            i++;
+          }
+        }
+
+        function nextText() {
+          i = 0;
+          element.textContent = "";
+          const next = texts[index + 1];
+          if (next) {
+            textTypingEffect(element, next.text, next.tempo, next.delay, index + 1);
+          }
+        }
+
+        setTimeout(nextText, delay);
+        type();
+      }
+
+      textTypingEffect(div, texts[0].text, texts[0].tempo, texts[0].delay, 0);
+    </script>
+  </body>
+</html>
