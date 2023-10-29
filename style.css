@@ -194,11 +194,33 @@ audio::-webkit-media-controls-panel {
   html {
     font-size: 68.5%;
   }
+  audio {
+    max-width: 500px;
+  }
+  .glowing {
+    position: relative;
+    min-width: 700px;
+    height: 550px;
+    margin: 0px;
+    transform-origin: right;
+    animation: colorChange 5s linear infinite;
+  }
 }
 
 /* HP */
 @media (max-width: 450px) {
   html {
     font-size: 55%;
+  }
+  audio {
+    max-width: 350px;
+  }
+  .glowing {
+    position: relative;
+    min-width: 400px;
+    height: 300px;
+    margin: 0px;
+    transform-origin: right;
+    animation: colorChange 5s linear infinite;
   }
 }
