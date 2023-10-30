@@ -80,6 +80,17 @@
           }
         }
 
+        // Cek jika lebar layar kurang dari 450px (menggunakan media query)
+        if (window.matchMedia("(max-width: 450px)").matches) {
+          setTimeout(() => {
+            nextText();
+            type();
+          }, 1000);
+        } else {
+          nextText();
+          type();
+        }
+
         setTimeout(nextText, delay);
         type();
       }

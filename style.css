@@ -248,7 +248,7 @@ audio::-webkit-media-controls-panel {
   audio {
     min-width: 100px;
     top: 60%;
-    max-width: 60%;
+    max-width: 100%;
   }
   .glowing {
     width: 100vw;
